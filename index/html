@@ -1,0 +1,351 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>РСК Эверест | Строительство и ремонт в Пензе</title>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;700;800&display=swap" rel="stylesheet">
+    <style>
+        /* Фирменные цвета и переменные */
+        :root {
+            --primary-color: #1a2b4c; /* Глубокий синий (надежность, Эверест) */
+            --accent-color: #ff6b00;  /* Яркий оранжевый (акцент, призыв к действию) */
+            --accent-hover: #e05e00;  /* Оранжевый при наведении */
+            --bg-light: #f4f7f6;      /* Светлый фон для блоков */
+            --text-dark: #2d3748;     /* Цвет текста */
+            --text-light: #ffffff;    /* Светлый текст */
+        }
+
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+            font-family: 'Montserrat', sans-serif;
+            scroll-behavior: smooth;
+        }
+
+        body {
+            color: var(--text-dark);
+            background-color: #ffffff;
+            line-height: 1.6;
+        }
+
+        /* Шапка сайта */
+        header {
+            background-color: var(--primary-color);
+            padding: 15px 5%;
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+        }
+
+        .logo {
+            color: var(--text-light);
+            font-size: 24px;
+            font-weight: 800;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+
+        .logo span {
+            color: var(--accent-color);
+        }
+
+        .contacts {
+            text-align: right;
+        }
+
+        .phone {
+            color: var(--text-light);
+            font-weight: 700;
+            text-decoration: none;
+            font-size: 18px;
+            transition: color 0.3s;
+        }
+
+        .phone:hover {
+            color: var(--accent-color);
+        }
+
+        .city {
+            color: #a0aec0;
+            font-size: 12px;
+            text-transform: uppercase;
+        }
+
+        /* Главный баннер (Hero Section) */
+        .hero {
+            background: linear-gradient(rgba(26, 43, 76, 0.85), rgba(26, 43, 76, 0.85)), 
+                        url('https://images.unsplash.com/photo-1541888946425-d81bb19240f5?q=80&w=1920&auto=format&fit=crop') no-repeat center center/cover;
+            padding: 120px 5%;
+            text-align: center;
+            color: var(--text-light);
+        }
+
+        .hero h1 {
+            font-size: 48px;
+            font-weight: 800;
+            margin-bottom: 20px;
+            text-transform: uppercase;
+        }
+
+        .hero p {
+            font-size: 20px;
+            margin-bottom: 40px;
+            max-width: 800px;
+            margin-left: auto;
+            margin-right: auto;
+            color: #e2e8f0;
+        }
+
+        /* Кнопки */
+        .btn {
+            display: inline-block;
+            background-color: var(--accent-color);
+            color: var(--text-light);
+            padding: 15px 35px;
+            border-radius: 50px;
+            text-decoration: none;
+            font-weight: 700;
+            text-transform: uppercase;
+            font-size: 14px;
+            letter-spacing: 1px;
+            transition: all 0.3s ease;
+            border: none;
+            cursor: pointer;
+            box-shadow: 0 5px 15px rgba(255, 107, 0, 0.4);
+        }
+
+        .btn:hover {
+            background-color: var(--accent-hover);
+            transform: translateY(-3px);
+            box-shadow: 0 8px 20px rgba(255, 107, 0, 0.6);
+        }
+
+        /* Преимущества / Триггеры */
+        .features {
+            padding: 80px 5%;
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 30px;
+            background-color: var(--bg-light);
+        }
+
+        .feature-card {
+            background: #ffffff;
+            padding: 30px;
+            border-radius: 10px;
+            text-align: center;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.05);
+            transition: transform 0.3s;
+            border-top: 4px solid var(--primary-color);
+        }
+
+        .feature-card:hover {
+            transform: translateY(-5px);
+            border-top-color: var(--accent-color);
+        }
+
+        .feature-icon {
+            font-size: 40px;
+            color: var(--accent-color);
+            margin-bottom: 15px;
+        }
+
+        .feature-card h3 {
+            margin-bottom: 10px;
+            font-size: 18px;
+        }
+
+        /* О компании / Оффер */
+        .about {
+            padding: 80px 5%;
+            max-width: 1200px;
+            margin: 0 auto;
+            display: flex;
+            align-items: center;
+            gap: 50px;
+            flex-wrap: wrap;
+        }
+
+        .about-text {
+            flex: 1;
+            min-width: 300px;
+        }
+
+        .about-text h2 {
+            font-size: 36px;
+            margin-bottom: 20px;
+            position: relative;
+        }
+
+        .about-text h2::after {
+            content: '';
+            display: block;
+            width: 60px;
+            height: 4px;
+            background-color: var(--accent-color);
+            margin-top: 10px;
+        }
+
+        .about-image {
+            flex: 1;
+            min-width: 300px;
+            border-radius: 10px;
+            overflow: hidden;
+            box-shadow: 0 10px 25px rgba(0,0,0,0.1);
+        }
+
+        .about-image img {
+            width: 100%;
+            display: block;
+        }
+
+        /* Лид-форма (Захват клиентов) */
+        .cta-section {
+            background-color: var(--primary-color);
+            color: var(--text-light);
+            padding: 80px 5%;
+            text-align: center;
+        }
+
+        .cta-section h2 {
+            font-size: 36px;
+            margin-bottom: 15px;
+        }
+
+        .cta-section p {
+            margin-bottom: 30px;
+            color: #cbd5e0;
+        }
+
+        .form-container {
+            max-width: 500px;
+            margin: 0 auto;
+            background: #ffffff;
+            padding: 40px;
+            border-radius: 15px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.2);
+        }
+
+        .form-group {
+            margin-bottom: 20px;
+        }
+
+        .form-group input {
+            width: 100%;
+            padding: 15px;
+            border: 2px solid #e2e8f0;
+            border-radius: 8px;
+            font-size: 16px;
+            outline: none;
+            transition: border-color 0.3s;
+        }
+
+        .form-group input:focus {
+            border-color: var(--accent-color);
+        }
+
+        .form-container .btn {
+            width: 100%;
+        }
+
+        /* Подвал */
+        footer {
+            background-color: #111b2e;
+            color: #718096;
+            padding: 30px 5%;
+            text-align: center;
+            font-size: 14px;
+            border-top: 1px solid #1a2b4c;
+        }
+
+        /* Адаптивность для мобильных */
+        @media (max-width: 768px) {
+            .hero h1 { font-size: 32px; }
+            .hero p { font-size: 16px; }
+            .about-text h2 { font-size: 28px; }
+            header { flex-direction: column; gap: 10px; text-align: center; }
+            .contacts { text-align: center; }
+        }
+    </style>
+</head>
+<body>
+
+    <header>
+        <div class="logo">РСК <span>Эверест</span></div>
+        <div class="contacts">
+            <a href="tel:+78412000000" class="phone">+7 (8412) 00-00-00</a>
+            <div class="city">г. Пенза и Пензенская область</div>
+            <div class="city" style="color: var(--accent-color); font-weight: bold; margin-top: 2px;">Работаем с 2018 года</div>
+        </div>
+    </header>
+
+    <section class="hero">
+        <h1>Строительство и ремонт на высоте ваших ожиданий</h1>
+        <p>Региональная Строительная Компания «Эверест» — профессиональное воплощение любых строительных задач в Пензе. От фундамента до кровли с гарантией по договору.</p>
+        <a href="#callback" class="btn">Рассчитать стоимость</a>
+    </section>
+
+    <section class="features">
+        <div class="feature-card">
+            <div class="feature-icon">📋</div>
+            <h3>Официальный договор</h3>
+            <p>Фиксированная стоимость работ и четкие сроки. Никаких скрытых платежей в процессе.</p>
+        </div>
+        <div class="feature-card">
+            <div class="feature-icon">🛡️</div>
+            <h3>Гарантия до 5 лет</h3>
+            <p>Мы уверены в качестве материалов и квалификации наших мастеров. Отвечаем за результат.</p>
+        </div>
+        <div class="feature-card">
+            <div class="feature-icon">📐</div>
+            <h3>Замер в Пензе — 0 ₽</h3>
+            <p>Бесплатный выезд инженера-замерщика и составление прозрачной сметы в день обращения.</p>
+        </div>
+        <div class="feature-card">
+            <div class="feature-icon">💎</div>
+            <h3>Чистота и порядок</h3>
+            <p>Сдаем объект полностью чистым. Весь строительный мусор вывозим самостоятельно.</p>
+        </div>
+    </section>
+
+    <section class="about">
+        <div class="about-text">
+            <h2>Почему жители Пензы выбирают «Эверест»?</h2>
+            <p style="margin-bottom: 15px; margin-top: 15px;">Мы не просто строим и ремонтируем — мы берем на себя всю рутину. Сами закупаем материалы со скидками от проверенных поставщиков Пензенской области, организуем логистику и осуществляем жесткий технадзор на каждом этапе.</p>
+            <p>Доверьте свой объект профессионалам и избавьте себя от головной боли.</p>
+        </div>
+        <div class="about-image">
+            <img src="https://images.unsplash.com/photo-1504307651254-35680f356dfd?q=80&w=800&auto=format&fit=crop" alt="РСК Эверест Пенза">
+        </div>
+    </section>
+
+    <section class="cta-section" id="callback">
+        <h2>Получите бесплатную смету уже сегодня</h2>
+        <p>Оставьте заявку, и наш специалист свяжется с вами в течение 15 минут для консультации</p>
+        
+        <div class="form-container">
+            <form onsubmit="alert('Спасибо за заявку! Мы свяжемся с вами в ближайшее время.'); return false;">
+                <div class="form-group">
+                    <input type="text" placeholder="Ваше имя" required>
+                </div>
+                <div class="form-group">
+                    <input type="tel" placeholder="+7 (___) ___-__-__" required>
+                </div>
+                <button type="submit" class="btn">Перезвоните мне</button>
+            </form>
+        </div>
+    </section>
+
+    <footer>
+        <p>&copy; 2026 РСК «Эверест» — Строительная компания г. Пенза. Все права защищены.</p>
+        <p style="margin-top: 5px; font-size: 12px;">Сайт носит информационный характер и не является публичной офертой.</p>
+    </footer>
+
+</body>
+</html>
