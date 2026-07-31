@@ -23,3 +23,12 @@ the full HyperFrames bundle: 25 skills total, including `hyperframes`,
   routes to the specialized workflow skills above.
 - Committed and pushed on branch `claude/heygen-hyperframes-setup-ei5pu4`
   (commit `d86deae`, 943 files).
+
+## "редактор" skill alias
+
+Added `.agents/skills/редактор/SKILL.md` (symlinked at `.claude/skills/редактор`),
+a thin alias skill created at the user's request: it has no logic of its own and just
+defers to the `hyperframes` skill above. Whenever the user says "редактор", always
+trigger this and follow `hyperframes`'s routing. Use it automatically for the user's
+video/motion-graphic work going forward — this is a standing preference, not a
+one-off request.
