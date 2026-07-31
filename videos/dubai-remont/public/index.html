@@ -1,0 +1,682 @@
+<!doctype html>
+<html lang="ru">
+<head>
+<meta charset="utf-8"/>
+<style>
+@font-face {
+  font-family: 'Unbounded';
+  font-style: normal;
+  font-weight: 800;
+  font-display: block;
+  src: url(fonts/unbounded-cyrillic-ext-0.woff2) format('woff2');
+  unicode-range: U+0460-052F, U+1C80-1C8A, U+20B4, U+2DE0-2DFF, U+A640-A69F, U+FE2E-FE2F;
+}
+@font-face {
+  font-family: 'Unbounded';
+  font-style: normal;
+  font-weight: 800;
+  font-display: block;
+  src: url(fonts/unbounded-cyrillic-1.woff2) format('woff2');
+  unicode-range: U+0301, U+0400-045F, U+0490-0491, U+04B0-04B1, U+2116;
+}
+@font-face {
+  font-family: 'Unbounded';
+  font-style: normal;
+  font-weight: 800;
+  font-display: block;
+  src: url(fonts/unbounded-latin-ext-2.woff2) format('woff2');
+  unicode-range: U+0100-02BA, U+02BD-02C5, U+02C7-02CC, U+02CE-02D7, U+02DD-02FF, U+0304, U+0308, U+0329, U+1D00-1DBF, U+1E00-1E9F, U+1EF2-1EFF, U+2020, U+20A0-20AB, U+20AD-20C0, U+2113, U+2C60-2C7F, U+A720-A7FF;
+}
+@font-face {
+  font-family: 'Unbounded';
+  font-style: normal;
+  font-weight: 800;
+  font-display: block;
+  src: url(fonts/unbounded-latin-3.woff2) format('woff2');
+  unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+0304, U+0308, U+0329, U+2000-206F, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
+}
+@font-face {
+  font-family: 'Manrope';
+  font-style: normal;
+  font-weight: 500;
+  font-display: block;
+  src: url(fonts/manrope-cyrillic-ext-4.woff2) format('woff2');
+  unicode-range: U+0460-052F, U+1C80-1C8A, U+20B4, U+2DE0-2DFF, U+A640-A69F, U+FE2E-FE2F;
+}
+@font-face {
+  font-family: 'Manrope';
+  font-style: normal;
+  font-weight: 500;
+  font-display: block;
+  src: url(fonts/manrope-cyrillic-5.woff2) format('woff2');
+  unicode-range: U+0301, U+0400-045F, U+0490-0491, U+04B0-04B1, U+2116;
+}
+@font-face {
+  font-family: 'Manrope';
+  font-style: normal;
+  font-weight: 500;
+  font-display: block;
+  src: url(fonts/manrope-latin-ext-6.woff2) format('woff2');
+  unicode-range: U+0100-02BA, U+02BD-02C5, U+02C7-02CC, U+02CE-02D7, U+02DD-02FF, U+0304, U+0308, U+0329, U+1D00-1DBF, U+1E00-1E9F, U+1EF2-1EFF, U+2020, U+20A0-20AB, U+20AD-20C0, U+2113, U+2C60-2C7F, U+A720-A7FF;
+}
+@font-face {
+  font-family: 'Manrope';
+  font-style: normal;
+  font-weight: 500;
+  font-display: block;
+  src: url(fonts/manrope-latin-7.woff2) format('woff2');
+  unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+0304, U+0308, U+0329, U+2000-206F, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
+}
+@font-face {
+  font-family: 'Manrope';
+  font-style: normal;
+  font-weight: 700;
+  font-display: block;
+  src: url(fonts/manrope-cyrillic-ext-8.woff2) format('woff2');
+  unicode-range: U+0460-052F, U+1C80-1C8A, U+20B4, U+2DE0-2DFF, U+A640-A69F, U+FE2E-FE2F;
+}
+@font-face {
+  font-family: 'Manrope';
+  font-style: normal;
+  font-weight: 700;
+  font-display: block;
+  src: url(fonts/manrope-cyrillic-9.woff2) format('woff2');
+  unicode-range: U+0301, U+0400-045F, U+0490-0491, U+04B0-04B1, U+2116;
+}
+@font-face {
+  font-family: 'Manrope';
+  font-style: normal;
+  font-weight: 700;
+  font-display: block;
+  src: url(fonts/manrope-latin-ext-10.woff2) format('woff2');
+  unicode-range: U+0100-02BA, U+02BD-02C5, U+02C7-02CC, U+02CE-02D7, U+02DD-02FF, U+0304, U+0308, U+0329, U+1D00-1DBF, U+1E00-1E9F, U+1EF2-1EFF, U+2020, U+20A0-20AB, U+20AD-20C0, U+2113, U+2C60-2C7F, U+A720-A7FF;
+}
+@font-face {
+  font-family: 'Manrope';
+  font-style: normal;
+  font-weight: 700;
+  font-display: block;
+  src: url(fonts/manrope-latin-11.woff2) format('woff2');
+  unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+0304, U+0308, U+0329, U+2000-206F, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
+}
+@font-face {
+  font-family: 'JetBrains Mono';
+  font-style: normal;
+  font-weight: 700;
+  font-display: block;
+  src: url(fonts/jbmono-cyrillic-ext-12.woff2) format('woff2');
+  unicode-range: U+0460-052F, U+1C80-1C8A, U+20B4, U+2DE0-2DFF, U+A640-A69F, U+FE2E-FE2F;
+}
+@font-face {
+  font-family: 'JetBrains Mono';
+  font-style: normal;
+  font-weight: 700;
+  font-display: block;
+  src: url(fonts/jbmono-cyrillic-13.woff2) format('woff2');
+  unicode-range: U+0301, U+0400-045F, U+0490-0491, U+04B0-04B1, U+2116;
+}
+@font-face {
+  font-family: 'JetBrains Mono';
+  font-style: normal;
+  font-weight: 700;
+  font-display: block;
+  src: url(fonts/jbmono-latin-ext-14.woff2) format('woff2');
+  unicode-range: U+0100-02BA, U+02BD-02C5, U+02C7-02CC, U+02CE-02D7, U+02DD-02FF, U+0304, U+0308, U+0329, U+1D00-1DBF, U+1E00-1E9F, U+1EF2-1EFF, U+2020, U+20A0-20AB, U+20AD-20C0, U+2113, U+2C60-2C7F, U+A720-A7FF;
+}
+@font-face {
+  font-family: 'JetBrains Mono';
+  font-style: normal;
+  font-weight: 700;
+  font-display: block;
+  src: url(fonts/jbmono-latin-15.woff2) format('woff2');
+  unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+0304, U+0308, U+0329, U+2000-206F, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
+}
+:root{ --bg:#16161A; --graphite:#16161A; --text:#F5F2EC; --accent:#E11D2A; }
+*{box-sizing:border-box;}
+html,body{margin:0;padding:0;width:100%;height:100%;overflow:hidden;background:#000;
+  font-family:'Manrope','Unbounded',ui-sans-serif,system-ui,sans-serif;}
+#stage{position:relative;width:100%;height:100%;overflow:hidden;background:#000;}
+.video-wrapper{position:absolute;left:0;top:0;width:1080px;height:1920px;overflow:hidden;}
+.video-wrapper video{width:100%;height:100%;object-fit:cover;}
+.card-host{position:absolute;pointer-events:none;overflow:visible;}
+.card-host .root{width:100%;height:100%;}
+
+/* ---- subtitles ---- */
+.card-host.sub{display:flex;align-items:center;justify-content:center;text-align:center;}
+.subline{font-family:'Unbounded','Manrope',sans-serif;font-weight:800;line-height:1.02;
+  white-space:nowrap;letter-spacing:.2px;}
+.subline .w{color:var(--text);
+  -webkit-text-stroke:2px #0a0a0b; paint-order:stroke fill;
+  text-shadow:0 3px 12px rgba(0,0,0,.55),0 0 2px rgba(0,0,0,.9);}
+.subline .acc{color:var(--accent);font-style:italic;
+  -webkit-text-stroke:1.5px #2a0406; paint-order:stroke fill;
+  text-shadow:0 0 20px rgba(225,29,42,.55),0 3px 10px rgba(0,0,0,.6);}
+
+/* ---- kicker ---- */
+.pill-k{display:flex;align-items:center;gap:12px;justify-content:center;
+  background:rgba(22,22,26,.82);border:1px solid rgba(245,242,236,.14);border-radius:999px;
+  padding:0 26px;height:100%;backdrop-filter:blur(4px);}
+.pill-k .dot{width:12px;height:12px;background:var(--accent);border-radius:2px;transform:rotate(45deg);box-shadow:0 0 12px rgba(225,29,42,.7);}
+.pill-k .kt{font-family:'Manrope';font-weight:700;color:var(--text);font-size:26px;letter-spacing:3px;}
+
+/* ---- chapter ---- */
+.chap{display:flex;align-items:center;gap:16px;justify-content:center;
+  background:rgba(22,22,26,.85);border-radius:18px;padding:0 30px;height:100%;
+  border:1px solid rgba(245,242,236,.12);box-shadow:0 10px 30px rgba(0,0,0,.4);}
+.chap .cn{font-family:'Unbounded';font-weight:800;font-size:56px;color:var(--accent);
+  text-shadow:0 0 18px rgba(225,29,42,.5);line-height:1;}
+.chap .cl{font-family:'Manrope';font-weight:700;font-size:30px;color:var(--text);letter-spacing:2px;}
+
+/* ---- stat callout ---- */
+.statc{background:linear-gradient(180deg,rgba(22,22,26,.92),rgba(22,22,26,.86));
+  border-radius:26px;border:1px solid rgba(245,242,236,.10);
+  box-shadow:0 18px 50px rgba(0,0,0,.5);padding:26px 34px;position:relative;
+  display:flex;flex-direction:column;justify-content:center;overflow:hidden;}
+.statc:before{content:"";position:absolute;left:0;top:0;bottom:0;width:10px;background:var(--accent);box-shadow:0 0 20px rgba(225,29,42,.6);}
+.statc .sk{font-family:'Manrope';font-weight:700;color:#cfc9bd;font-size:30px;letter-spacing:3px;margin-left:8px;}
+.statc .sv{font-family:'Unbounded';font-weight:800;color:var(--accent);line-height:1;margin-top:6px;margin-left:6px;
+  text-shadow:0 0 26px rgba(225,29,42,.45);display:flex;align-items:baseline;}
+.statc .sv .pre{font-size:96px;} .statc .sv .num{font-size:150px;font-family:'JetBrains Mono';font-weight:700;}
+.statc .sv .suf{font-size:96px;margin-left:4px;}
+.statc .bar{height:8px;margin-top:14px;margin-left:6px;background:var(--accent);border-radius:4px;transform-origin:left center;box-shadow:0 0 14px rgba(225,29,42,.6);}
+
+/* ---- money ---- */
+.money{background:rgba(22,22,26,.92);border-radius:26px;border:1px solid rgba(245,242,236,.10);
+  box-shadow:0 18px 50px rgba(0,0,0,.5);padding:28px 34px;display:flex;flex-direction:column;justify-content:center;}
+.money .mk{font-family:'Manrope';font-weight:700;color:#cfc9bd;font-size:28px;letter-spacing:3px;}
+.money .mrow{display:flex;align-items:center;justify-content:center;gap:20px;margin-top:14px;font-family:'JetBrains Mono';font-weight:700;white-space:nowrap;}
+.money .was{color:#8b8578;font-size:58px;text-decoration:line-through;text-decoration-color:rgba(225,29,42,.7);white-space:nowrap;}
+.money .arr{color:var(--text);font-size:52px;}
+.money .now{color:var(--accent);font-size:72px;text-shadow:0 0 24px rgba(225,29,42,.5);white-space:nowrap;}
+
+/* ---- checklist ---- */
+.feat{display:flex;flex-direction:column;gap:18px;justify-content:center;}
+.frow{display:flex;align-items:center;gap:20px;background:rgba(22,22,26,.80);border-radius:16px;
+  padding:16px 24px;border:1px solid rgba(245,242,236,.10);box-shadow:0 8px 24px rgba(0,0,0,.35);}
+.frow .chk{width:52px;height:52px;flex:0 0 52px;display:flex;align-items:center;justify-content:center;
+  background:var(--accent);color:#fff;border-radius:12px;font-size:34px;font-weight:800;box-shadow:0 0 16px rgba(225,29,42,.5);}
+.frow .ft{font-family:'Manrope';font-weight:700;color:var(--text);font-size:40px;letter-spacing:.5px;}
+
+/* ---- districts ---- */
+.dist{display:flex;flex-wrap:wrap;gap:16px;align-items:center;justify-content:center;}
+.dpill{font-family:'Manrope';font-weight:700;font-size:38px;color:var(--text);letter-spacing:1px;
+  background:rgba(22,22,26,.86);border:1px solid var(--accent);border-radius:999px;padding:14px 30px;
+  box-shadow:0 0 20px rgba(225,29,42,.25),0 10px 26px rgba(0,0,0,.4);}
+</style>
+</head>
+<body>
+<div id="stage" data-composition-id="dubai-remont" data-start="0" data-duration="43.48" data-fps="25" data-width="1080" data-height="1920">
+  <div class="video-wrapper" id="video-wrap">
+    <video id="bg-video" src="input-video.mp4" muted playsinline data-start="0" data-duration="43.48" data-track-index="1"></video>
+  </div>
+  <audio id="source-audio" src="input-video.mp4" data-start="0" data-duration="43.48" data-track-index="10" data-volume="1"></audio>
+  <audio id="bgm" src="media/bgm.mp3" data-start="0" data-duration="43.48" data-track-index="11" data-volume="0.12"></audio>
+
+<div class="card-host clip" id="c-kicker" data-card-id="c-kicker" data-start="0.2000" data-duration="2.6800" data-track-index="4" style="left:300px;top:86px;width:480px;height:72px;visibility:hidden;opacity:0;">
+<div class="root pill-k"><span class="dot"></span><span class="kt">ДУБАЙ · НЕДВИЖИМОСТЬ</span></div>
+</div>
+<div class="card-host clip" id="c-ch1" data-card-id="c-ch1" data-start="2.9600" data-duration="2.6400" data-track-index="4" style="left:300px;top:80px;width:480px;height:96px;visibility:hidden;opacity:0;">
+<div class="root chap"><span class="cn">01</span><span class="cl">АРЕНДНАЯ СТАВКА</span></div>
+</div>
+<div class="card-host clip" id="c-ch2" data-card-id="c-ch2" data-start="13.5200" data-duration="1.6000" data-track-index="4" style="left:300px;top:80px;width:480px;height:96px;visibility:hidden;opacity:0;">
+<div class="root chap"><span class="cn">02</span><span class="cl">ПРЕМИУМ-РЫНОК</span></div>
+</div>
+<div class="card-host clip" id="c-ch3" data-card-id="c-ch3" data-start="30.8800" data-duration="2.2400" data-track-index="4" style="left:300px;top:80px;width:480px;height:96px;visibility:hidden;opacity:0;">
+<div class="root chap"><span class="cn">03</span><span class="cl">ПЕРЕПРОДАЖА</span></div>
+</div>
+<div class="card-host clip" id="c-stat1" data-card-id="c-stat1" data-start="5.6800" data-duration="3.4400" data-track-index="4" style="left:150px;top:150px;width:780px;height:290px;visibility:hidden;opacity:0;">
+<div class="root statc">
+   <div class="sk">РОСТ АРЕНДНОЙ СТАВКИ</div>
+   <div class="sv"><span class="pre">+40–</span><span class="num" id="c-stat1-num">0</span><span class="suf">%</span></div>
+   <div class="bar" id="c-stat1-bar"></div>
+ </div>
+</div>
+<div class="card-host clip" id="c-stat2" data-card-id="c-stat2" data-start="37.9200" data-duration="2.2400" data-track-index="4" style="left:150px;top:150px;width:780px;height:290px;visibility:hidden;opacity:0;">
+<div class="root statc">
+   <div class="sk">РОСТ СТОИМОСТИ</div>
+   <div class="sv"><span class="pre">+40–</span><span class="num" id="c-stat2-num">0</span><span class="suf">%</span></div>
+   <div class="bar" id="c-stat2-bar"></div>
+ </div>
+</div>
+<div class="card-host clip" id="c-money" data-card-id="c-money" data-start="9.5600" data-duration="3.8800" data-track-index="4" style="left:150px;top:150px;width:780px;height:300px;visibility:hidden;opacity:0;">
+<div class="root money">
+   <div class="mk">АРЕНДА · AED / МЕС</div>
+   <div class="mrow">
+     <span class="was">100 000</span>
+     <span class="arr" id="c-money-arr">→</span>
+     <span class="now" id="c-money-now">140–160К</span>
+   </div>
+ </div>
+</div>
+<div class="card-host clip" id="c-feat" data-card-id="c-feat" data-start="19.5600" data-duration="5.4800" data-track-index="4" style="left:120px;top:980px;width:840px;height:300px;visibility:hidden;opacity:0;">
+<div class="root feat"><div class="frow" id="c-feat-r0"><span class="chk">✓</span><span class="ft">СОВРЕМЕННЫЕ ИНТЕРЬЕРЫ</span></div><div class="frow" id="c-feat-r1"><span class="chk">✓</span><span class="ft">ВСТРОЕННАЯ ТЕХНИКА</span></div><div class="frow" id="c-feat-r2"><span class="chk">✓</span><span class="ft">ДИЗАЙНЕРСКИЕ РЕШЕНИЯ</span></div></div>
+</div>
+<div class="card-host clip" id="c-dist" data-card-id="c-dist" data-start="40.1600" data-duration="3.2800" data-track-index="4" style="left:90px;top:995px;width:900px;height:250px;visibility:hidden;opacity:0;">
+<div class="root dist"><div class="dpill" id="c-dist-p0">PALM JUMEIRAH</div><div class="dpill" id="c-dist-p1">MARINA</div><div class="dpill" id="c-dist-p2">DOWNTOWN</div></div>
+</div>
+
+<div class="card-host clip sub" id="sub-00" data-card-id="sub-00" data-start="0.0800" data-duration="1.3600" data-track-index="3" style="left:0;top:1210px;width:1080px;height:300px;visibility:hidden;opacity:0;">
+  <div class="subline" id="sub-00-line" style="font-size:90px;"><span class="acc">ТРИ</span> <span class="w">ПРИЧИНЫ</span></div>
+</div>
+<div class="card-host clip sub" id="sub-01" data-card-id="sub-01" data-start="1.4400" data-duration="0.8400" data-track-index="3" style="left:0;top:1210px;width:1080px;height:300px;visibility:hidden;opacity:0;">
+  <div class="subline" id="sub-01-line" style="font-size:71px;"><span class="w">СДЕЛАТЬ</span> <span class="w">РЕМОНТ</span></div>
+</div>
+<div class="card-host clip sub" id="sub-02" data-card-id="sub-02" data-start="2.2800" data-duration="0.6400" data-track-index="3" style="left:0;top:1210px;width:1080px;height:300px;visibility:hidden;opacity:0;">
+  <div class="subline" id="sub-02-line" style="font-size:92px;"><span class="w">В</span> <span class="acc">ДУБАЕ</span></div>
+</div>
+<div class="card-host clip sub" id="sub-03" data-card-id="sub-03" data-start="2.9600" data-duration="0.7200" data-track-index="3" style="left:0;top:1210px;width:1080px;height:300px;visibility:hidden;opacity:0;">
+  <div class="subline" id="sub-03-line" style="font-size:92px;"><span class="acc">ПЕРВАЯ</span></div>
+</div>
+<div class="card-host clip sub" id="sub-04" data-card-id="sub-04" data-start="3.7200" data-duration="0.7600" data-track-index="3" style="left:0;top:1210px;width:1080px;height:300px;visibility:hidden;opacity:0;">
+  <div class="subline" id="sub-04-line" style="font-size:51px;"><span class="w">КАЧЕСТВЕННЫЙ</span> <span class="w">РЕМОНТ</span></div>
+</div>
+<div class="card-host clip sub" id="sub-05" data-card-id="sub-05" data-start="4.5200" data-duration="0.6000" data-track-index="3" style="left:0;top:1210px;width:1080px;height:300px;visibility:hidden;opacity:0;">
+  <div class="subline" id="sub-05-line" style="font-size:67px;"><span class="w">МОЖЕТ</span> <span class="w">ПОВЫСИТЬ</span></div>
+</div>
+<div class="card-host clip sub" id="sub-06" data-card-id="sub-06" data-start="5.1200" data-duration="0.7600" data-track-index="3" style="left:0;top:1210px;width:1080px;height:300px;visibility:hidden;opacity:0;">
+  <div class="subline" id="sub-06-line" style="font-size:65px;"><span class="w">АРЕНДНУЮ</span> <span class="w">СТАВКУ</span></div>
+</div>
+<div class="card-host clip sub" id="sub-07" data-card-id="sub-07" data-start="5.9200" data-duration="1.6000" data-track-index="3" style="left:0;top:1210px;width:1080px;height:300px;visibility:hidden;opacity:0;">
+  <div class="subline" id="sub-07-line" style="font-size:92px;"><span class="w">НА</span> <span class="acc">40–60%</span></div>
+</div>
+<div class="card-host clip sub" id="sub-08" data-card-id="sub-08" data-start="7.5600" data-duration="0.6000" data-track-index="3" style="left:0;top:1210px;width:1080px;height:300px;visibility:hidden;opacity:0;">
+  <div class="subline" id="sub-08-line" style="font-size:92px;"><span class="w">ТО</span> <span class="w">ЕСТЬ</span></div>
+</div>
+<div class="card-host clip sub" id="sub-09" data-card-id="sub-09" data-start="8.5200" data-duration="0.6800" data-track-index="3" style="left:0;top:1210px;width:1080px;height:300px;visibility:hidden;opacity:0;">
+  <div class="subline" id="sub-09-line" style="font-size:75px;"><span class="w">ВАША</span> <span class="w">КВАРТИРА</span></div>
+</div>
+<div class="card-host clip sub" id="sub-10" data-card-id="sub-10" data-start="9.2400" data-duration="0.5600" data-track-index="3" style="left:0;top:1210px;width:1080px;height:300px;visibility:hidden;opacity:0;">
+  <div class="subline" id="sub-10-line" style="font-size:82px;"><span class="w">СДАВАЛАСЬ</span> <span class="w">ЗА</span></div>
+</div>
+<div class="card-host clip sub" id="sub-11" data-card-id="sub-11" data-start="9.8400" data-duration="0.7600" data-track-index="3" style="left:0;top:1210px;width:1080px;height:300px;visibility:hidden;opacity:0;">
+  <div class="subline" id="sub-11-line" style="font-size:92px;"><span class="acc">100</span> <span class="acc">000</span> <span class="w">AED</span></div>
+</div>
+<div class="card-host clip sub" id="sub-12" data-card-id="sub-12" data-start="10.6400" data-duration="0.6400" data-track-index="3" style="left:0;top:1210px;width:1080px;height:300px;visibility:hidden;opacity:0;">
+  <div class="subline" id="sub-12-line" style="font-size:76px;"><span class="w">ПОСЛЕ</span> <span class="w">РЕМОНТА</span></div>
+</div>
+<div class="card-host clip sub" id="sub-13" data-card-id="sub-13" data-start="11.2800" data-duration="0.6800" data-track-index="3" style="left:0;top:1210px;width:1080px;height:300px;visibility:hidden;opacity:0;">
+  <div class="subline" id="sub-13-line" style="font-size:84px;"><span class="w">СДАВАТЬСЯ</span> <span class="w">ЗА</span></div>
+</div>
+<div class="card-host clip sub" id="sub-14" data-card-id="sub-14" data-start="12.0000" data-duration="1.4400" data-track-index="3" style="left:0;top:1210px;width:1080px;height:300px;visibility:hidden;opacity:0;">
+  <div class="subline" id="sub-14-line" style="font-size:92px;"><span class="acc">140–160К</span> <span class="w">AED</span></div>
+</div>
+<div class="card-host clip sub" id="sub-15" data-card-id="sub-15" data-start="13.5200" data-duration="1.5600" data-track-index="3" style="left:0;top:1210px;width:1080px;height:300px;visibility:hidden;opacity:0;">
+  <div class="subline" id="sub-15-line" style="font-size:92px;"><span class="acc">ВТОРОЕ</span></div>
+</div>
+<div class="card-host clip sub" id="sub-16" data-card-id="sub-16" data-start="15.2000" data-duration="0.8000" data-track-index="3" style="left:0;top:1210px;width:1080px;height:300px;visibility:hidden;opacity:0;">
+  <div class="subline" id="sub-16-line" style="font-size:82px;"><span class="w">СООТВЕТСТВИЕ</span></div>
+</div>
+<div class="card-host clip sub" id="sub-17" data-card-id="sub-17" data-start="16.0000" data-duration="1.6400" data-track-index="3" style="left:0;top:1210px;width:1080px;height:300px;visibility:hidden;opacity:0;">
+  <div class="subline" id="sub-17-line" style="font-size:72px;"><span class="acc">ПРЕМИУМ-РЫНКУ</span></div>
+</div>
+<div class="card-host clip sub" id="sub-18" data-card-id="sub-18" data-start="17.6800" data-duration="0.8800" data-track-index="3" style="left:0;top:1210px;width:1080px;height:300px;visibility:hidden;opacity:0;">
+  <div class="subline" id="sub-18-line" style="font-size:92px;"><span class="w">ПОКУПАТЕЛИ</span></div>
+</div>
+<div class="card-host clip sub" id="sub-19" data-card-id="sub-19" data-start="18.6000" data-duration="0.4400" data-track-index="3" style="left:0;top:1210px;width:1080px;height:300px;visibility:hidden;opacity:0;">
+  <div class="subline" id="sub-19-line" style="font-size:92px;"><span class="w">В</span> <span class="acc">ДУБАЕ</span></div>
+</div>
+<div class="card-host clip sub" id="sub-20" data-card-id="sub-20" data-start="19.0400" data-duration="0.6400" data-track-index="3" style="left:0;top:1210px;width:1080px;height:300px;visibility:hidden;opacity:0;">
+  <div class="subline" id="sub-20-line" style="font-size:77px;"><span class="w">ПРЕДПОЧИТАЮТ</span></div>
+</div>
+<div class="card-host clip sub" id="sub-21" data-card-id="sub-21" data-start="19.6800" data-duration="0.6000" data-track-index="3" style="left:0;top:1210px;width:1080px;height:300px;visibility:hidden;opacity:0;">
+  <div class="subline" id="sub-21-line" style="font-size:84px;"><span class="w">СОВРЕМЕННЫЕ</span></div>
+</div>
+<div class="card-host clip sub" id="sub-22" data-card-id="sub-22" data-start="20.3200" data-duration="0.7200" data-track-index="3" style="left:0;top:1210px;width:1080px;height:300px;visibility:hidden;opacity:0;">
+  <div class="subline" id="sub-22-line" style="font-size:92px;"><span class="acc">ИНТЕРЬЕРЫ</span></div>
+</div>
+<div class="card-host clip sub" id="sub-23" data-card-id="sub-23" data-start="21.0400" data-duration="0.5600" data-track-index="3" style="left:0;top:1210px;width:1080px;height:300px;visibility:hidden;opacity:0;">
+  <div class="subline" id="sub-23-line" style="font-size:81px;"><span class="w">КАЧЕСТВЕННАЯ</span></div>
+</div>
+<div class="card-host clip sub" id="sub-24" data-card-id="sub-24" data-start="21.6000" data-duration="0.4400" data-track-index="3" style="left:0;top:1210px;width:1080px;height:300px;visibility:hidden;opacity:0;">
+  <div class="subline" id="sub-24-line" style="font-size:92px;"><span class="acc">ОТДЕЛКА</span></div>
+</div>
+<div class="card-host clip sub" id="sub-25" data-card-id="sub-25" data-start="22.0800" data-duration="0.4800" data-track-index="3" style="left:0;top:1210px;width:1080px;height:300px;visibility:hidden;opacity:0;">
+  <div class="subline" id="sub-25-line" style="font-size:92px;"><span class="w">ВСТРОЕННАЯ</span></div>
+</div>
+<div class="card-host clip sub" id="sub-26" data-card-id="sub-26" data-start="22.5600" data-duration="0.6400" data-track-index="3" style="left:0;top:1210px;width:1080px;height:300px;visibility:hidden;opacity:0;">
+  <div class="subline" id="sub-26-line" style="font-size:92px;"><span class="acc">ТЕХНИКА</span></div>
+</div>
+<div class="card-host clip sub" id="sub-27" data-card-id="sub-27" data-start="23.2800" data-duration="1.2000" data-track-index="3" style="left:0;top:1210px;width:1080px;height:300px;visibility:hidden;opacity:0;">
+  <div class="subline" id="sub-27-line" style="font-size:68px;"><span class="acc">ДИЗАЙН-РЕШЕНИЯ</span></div>
+</div>
+<div class="card-host clip sub" id="sub-28" data-card-id="sub-28" data-start="24.4800" data-duration="0.6400" data-track-index="3" style="left:0;top:1210px;width:1080px;height:300px;visibility:hidden;opacity:0;">
+  <div class="subline" id="sub-28-line" style="font-size:92px;"><span class="acc">БЕЗ</span> <span class="acc">РЕМОНТА</span></div>
+</div>
+<div class="card-host clip sub" id="sub-29" data-card-id="sub-29" data-start="25.1200" data-duration="0.7600" data-track-index="3" style="left:0;top:1210px;width:1080px;height:300px;visibility:hidden;opacity:0;">
+  <div class="subline" id="sub-29-line" style="font-size:75px;"><span class="w">ВАША</span> <span class="w">КВАРТИРА</span></div>
+</div>
+<div class="card-host clip sub" id="sub-30" data-card-id="sub-30" data-start="26.2800" data-duration="0.6800" data-track-index="3" style="left:0;top:1210px;width:1080px;height:300px;visibility:hidden;opacity:0;">
+  <div class="subline" id="sub-30-line" style="font-size:64px;"><span class="w">МОЖЕТ</span> <span class="acc">ЗАВИСНУТЬ</span></div>
+</div>
+<div class="card-host clip sub" id="sub-31" data-card-id="sub-31" data-start="27.0000" data-duration="0.6800" data-track-index="3" style="left:0;top:1210px;width:1080px;height:300px;visibility:hidden;opacity:0;">
+  <div class="subline" id="sub-31-line" style="font-size:92px;"><span class="w">НА</span> <span class="w">РЫНКЕ</span></div>
+</div>
+<div class="card-host clip sub" id="sub-32" data-card-id="sub-32" data-start="27.6800" data-duration="0.6400" data-track-index="3" style="left:0;top:1210px;width:1080px;height:300px;visibility:hidden;opacity:0;">
+  <div class="subline" id="sub-32-line" style="font-size:83px;"><span class="w">ОБНОВЛЁННЫЙ</span></div>
+</div>
+<div class="card-host clip sub" id="sub-33" data-card-id="sub-33" data-start="28.3200" data-duration="0.8800" data-track-index="3" style="left:0;top:1210px;width:1080px;height:300px;visibility:hidden;opacity:0;">
+  <div class="subline" id="sub-33-line" style="font-size:60px;"><span class="w">ОБЪЕКТ</span> <span class="w">С</span> <span class="w">РЕМОНТОМ</span></div>
+</div>
+<div class="card-host clip sub" id="sub-34" data-card-id="sub-34" data-start="29.2000" data-duration="0.6400" data-track-index="3" style="left:0;top:1210px;width:1080px;height:300px;visibility:hidden;opacity:0;">
+  <div class="subline" id="sub-34-line" style="font-size:92px;"><span class="w">СДАСТСЯ</span></div>
+</div>
+<div class="card-host clip sub" id="sub-35" data-card-id="sub-35" data-start="29.8400" data-duration="0.8000" data-track-index="3" style="left:0;top:1210px;width:1080px;height:300px;visibility:hidden;opacity:0;">
+  <div class="subline" id="sub-35-line" style="font-size:76px;"><span class="w">В</span> <span class="w">РАЗЫ</span> <span class="acc">БЫСТРЕЕ</span></div>
+</div>
+<div class="card-host clip sub" id="sub-36" data-card-id="sub-36" data-start="30.9200" data-duration="0.6000" data-track-index="3" style="left:0;top:1210px;width:1080px;height:300px;visibility:hidden;opacity:0;">
+  <div class="subline" id="sub-36-line" style="font-size:92px;"><span class="acc">ТРЕТЬЕ</span></div>
+</div>
+<div class="card-host clip sub" id="sub-37" data-card-id="sub-37" data-start="31.5200" data-duration="0.5600" data-track-index="3" style="left:0;top:1210px;width:1080px;height:300px;visibility:hidden;opacity:0;">
+  <div class="subline" id="sub-37-line" style="font-size:92px;"><span class="w">В</span> <span class="acc">ДУБАЕ</span></div>
+</div>
+<div class="card-host clip sub" id="sub-38" data-card-id="sub-38" data-start="32.0800" data-duration="0.7200" data-track-index="3" style="left:0;top:1210px;width:1080px;height:300px;visibility:hidden;opacity:0;">
+  <div class="subline" id="sub-38-line" style="font-size:70px;"><span class="w">МНОГИЕ</span> <span class="w">ОБЪЕКТЫ</span></div>
+</div>
+<div class="card-host clip sub" id="sub-39" data-card-id="sub-39" data-start="32.8000" data-duration="1.2400" data-track-index="3" style="left:0;top:1210px;width:1080px;height:300px;visibility:hidden;opacity:0;">
+  <div class="subline" id="sub-39-line" style="font-size:80px;"><span class="w">ПОКУПАЮТ</span> <span class="w">ДЛЯ</span></div>
+</div>
+<div class="card-host clip sub" id="sub-40" data-card-id="sub-40" data-start="34.0800" data-duration="0.8000" data-track-index="3" style="left:0;top:1210px;width:1080px;height:300px;visibility:hidden;opacity:0;">
+  <div class="subline" id="sub-40-line" style="font-size:83px;"><span class="acc">ПЕРЕПРОДАЖИ</span></div>
+</div>
+<div class="card-host clip sub" id="sub-41" data-card-id="sub-41" data-start="35.2800" data-duration="0.6400" data-track-index="3" style="left:0;top:1210px;width:1080px;height:300px;visibility:hidden;opacity:0;">
+  <div class="subline" id="sub-41-line" style="font-size:75px;"><span class="w">ВАША</span> <span class="w">КВАРТИРА</span></div>
+</div>
+<div class="card-host clip sub" id="sub-42" data-card-id="sub-42" data-start="35.9600" data-duration="0.4800" data-track-index="3" style="left:0;top:1210px;width:1080px;height:300px;visibility:hidden;opacity:0;">
+  <div class="subline" id="sub-42-line" style="font-size:92px;"><span class="w">С</span> <span class="w">РЕМОНТОМ</span></div>
+</div>
+<div class="card-host clip sub" id="sub-43" data-card-id="sub-43" data-start="36.4800" data-duration="1.4400" data-track-index="3" style="left:0;top:1210px;width:1080px;height:300px;visibility:hidden;opacity:0;">
+  <div class="subline" id="sub-43-line" style="font-size:71px;"><span class="acc">ВЫРАСТЕТ</span> <span class="w">В</span> <span class="w">ЦЕНЕ</span></div>
+</div>
+<div class="card-host clip sub" id="sub-44" data-card-id="sub-44" data-start="37.9200" data-duration="1.2800" data-track-index="3" style="left:0;top:1210px;width:1080px;height:300px;visibility:hidden;opacity:0;">
+  <div class="subline" id="sub-44-line" style="font-size:92px;"><span class="w">НА</span> <span class="acc">40–50%</span></div>
+</div>
+<div class="card-host clip sub" id="sub-45" data-card-id="sub-45" data-start="39.2400" data-duration="0.9200" data-track-index="3" style="left:0;top:1210px;width:1080px;height:300px;visibility:hidden;opacity:0;">
+  <div class="subline" id="sub-45-line" style="font-size:77px;"><span class="w">ЭТО</span> <span class="acc">АКТУАЛЬНО</span></div>
+</div>
+<div class="card-host clip sub" id="sub-46" data-card-id="sub-46" data-start="40.2000" data-duration="0.8400" data-track-index="3" style="left:0;top:1210px;width:1080px;height:300px;visibility:hidden;opacity:0;">
+  <div class="subline" id="sub-46-line" style="font-size:92px;"><span class="w">В</span> <span class="w">РАЙОНАХ</span></div>
+</div>
+<div class="card-host clip sub" id="sub-47" data-card-id="sub-47" data-start="41.0400" data-duration="0.8000" data-track-index="3" style="left:0;top:1210px;width:1080px;height:300px;visibility:hidden;opacity:0;">
+  <div class="subline" id="sub-47-line" style="font-size:64px;"><span class="acc">ПАЛЬМ-ДЖУМЕЙРА</span></div>
+</div>
+<div class="card-host clip sub" id="sub-48" data-card-id="sub-48" data-start="41.8800" data-duration="0.6800" data-track-index="3" style="left:0;top:1210px;width:1080px;height:300px;visibility:hidden;opacity:0;">
+  <div class="subline" id="sub-48-line" style="font-size:92px;"><span class="acc">МАРИНА</span></div>
+</div>
+<div class="card-host clip sub" id="sub-49" data-card-id="sub-49" data-start="42.5600" data-duration="0.8800" data-track-index="3" style="left:0;top:1210px;width:1080px;height:300px;visibility:hidden;opacity:0;">
+  <div class="subline" id="sub-49-line" style="font-size:92px;"><span class="w">И</span> <span class="acc">ДАУНТАУН</span></div>
+</div>
+
+  <script src="vendor/gsap.min.js"></script>
+  <script>
+  (function(){
+    const tl=window.gsap.timeline({paused:true});
+  tl.set("#video-wrap",{transformOrigin:"50% 42%",scale:1.03},0);
+  tl.to("#video-wrap",{scale:1.055,duration:2.9,ease:"none"},0.0000);
+  tl.to("#video-wrap",{scale:1.02,duration:0.45,ease:"power2.out"},2.9600);
+  tl.to("#video-wrap",{scale:1.05,duration:4.0,ease:"none"},3.5200);
+  tl.to("#video-wrap",{scale:1.02,duration:0.45,ease:"power2.out"},13.5200);
+  tl.to("#video-wrap",{scale:1.045,duration:5.0,ease:"none"},14.0000);
+  tl.to("#video-wrap",{scale:1.03,duration:0.5,ease:"power2.out"},19.5200);
+  tl.to("#video-wrap",{scale:1.05,duration:3.0,ease:"none"},25.2000);
+  tl.to("#video-wrap",{scale:1.02,duration:0.45,ease:"power2.out"},30.8800);
+  tl.to("#video-wrap",{scale:1.06,duration:4.0,ease:"none"},31.5200);
+  tl.to("#video-wrap",{scale:1.04,duration:3.4,ease:"none"},40.0000);
+
+  // subtitles
+  tl.set('.card-host[data-card-id="sub-00"]',{visibility:"visible"},0.0800);
+  tl.fromTo('.card-host[data-card-id="sub-00"]',{opacity:0},{opacity:1,duration:0.12,ease:"power2.out"},0.0800);
+  tl.fromTo('#sub-00-line',{opacity:0,scale:0.90,rotation:-3,y:16},{opacity:1,scale:1,rotation:0,y:0,duration:0.22,ease:"back.out(1.9)"},0.0800);
+  tl.set('.card-host[data-card-id="sub-00"]',{visibility:"hidden"},1.4400);
+  tl.set('.card-host[data-card-id="sub-01"]',{visibility:"visible"},1.4400);
+  tl.fromTo('.card-host[data-card-id="sub-01"]',{opacity:0},{opacity:1,duration:0.12,ease:"power2.out"},1.4400);
+  tl.fromTo('#sub-01-line',{opacity:0,scale:0.90,rotation:-3,y:16},{opacity:1,scale:1,rotation:0,y:0,duration:0.22,ease:"back.out(1.9)"},1.4400);
+  tl.set('.card-host[data-card-id="sub-01"]',{visibility:"hidden"},2.2800);
+  tl.set('.card-host[data-card-id="sub-02"]',{visibility:"visible"},2.2800);
+  tl.fromTo('.card-host[data-card-id="sub-02"]',{opacity:0},{opacity:1,duration:0.12,ease:"power2.out"},2.2800);
+  tl.fromTo('#sub-02-line',{opacity:0,scale:0.90,rotation:-3,y:16},{opacity:1,scale:1,rotation:0,y:0,duration:0.22,ease:"back.out(1.9)"},2.2800);
+  tl.set('.card-host[data-card-id="sub-02"]',{visibility:"hidden"},2.9200);
+  tl.set('.card-host[data-card-id="sub-03"]',{visibility:"visible"},2.9600);
+  tl.fromTo('.card-host[data-card-id="sub-03"]',{opacity:0},{opacity:1,duration:0.12,ease:"power2.out"},2.9600);
+  tl.fromTo('#sub-03-line',{opacity:0,scale:0.90,rotation:-3,y:16},{opacity:1,scale:1,rotation:0,y:0,duration:0.22,ease:"back.out(1.9)"},2.9600);
+  tl.set('.card-host[data-card-id="sub-03"]',{visibility:"hidden"},3.6800);
+  tl.set('.card-host[data-card-id="sub-04"]',{visibility:"visible"},3.7200);
+  tl.fromTo('.card-host[data-card-id="sub-04"]',{opacity:0},{opacity:1,duration:0.12,ease:"power2.out"},3.7200);
+  tl.fromTo('#sub-04-line',{opacity:0,scale:0.90,rotation:-3,y:16},{opacity:1,scale:1,rotation:0,y:0,duration:0.22,ease:"back.out(1.9)"},3.7200);
+  tl.set('.card-host[data-card-id="sub-04"]',{visibility:"hidden"},4.4800);
+  tl.set('.card-host[data-card-id="sub-05"]',{visibility:"visible"},4.5200);
+  tl.fromTo('.card-host[data-card-id="sub-05"]',{opacity:0},{opacity:1,duration:0.12,ease:"power2.out"},4.5200);
+  tl.fromTo('#sub-05-line',{opacity:0,scale:0.90,rotation:-3,y:16},{opacity:1,scale:1,rotation:0,y:0,duration:0.22,ease:"back.out(1.9)"},4.5200);
+  tl.set('.card-host[data-card-id="sub-05"]',{visibility:"hidden"},5.1200);
+  tl.set('.card-host[data-card-id="sub-06"]',{visibility:"visible"},5.1200);
+  tl.fromTo('.card-host[data-card-id="sub-06"]',{opacity:0},{opacity:1,duration:0.12,ease:"power2.out"},5.1200);
+  tl.fromTo('#sub-06-line',{opacity:0,scale:0.90,rotation:-3,y:16},{opacity:1,scale:1,rotation:0,y:0,duration:0.22,ease:"back.out(1.9)"},5.1200);
+  tl.set('.card-host[data-card-id="sub-06"]',{visibility:"hidden"},5.8800);
+  tl.set('.card-host[data-card-id="sub-07"]',{visibility:"visible"},5.9200);
+  tl.fromTo('.card-host[data-card-id="sub-07"]',{opacity:0},{opacity:1,duration:0.12,ease:"power2.out"},5.9200);
+  tl.fromTo('#sub-07-line',{opacity:0,scale:0.90,rotation:-3,y:16},{opacity:1,scale:1,rotation:0,y:0,duration:0.22,ease:"back.out(1.9)"},5.9200);
+  tl.set('.card-host[data-card-id="sub-07"]',{visibility:"hidden"},7.5200);
+  tl.set('.card-host[data-card-id="sub-08"]',{visibility:"visible"},7.5600);
+  tl.fromTo('.card-host[data-card-id="sub-08"]',{opacity:0},{opacity:1,duration:0.12,ease:"power2.out"},7.5600);
+  tl.fromTo('#sub-08-line',{opacity:0,scale:0.90,rotation:-3,y:16},{opacity:1,scale:1,rotation:0,y:0,duration:0.22,ease:"back.out(1.9)"},7.5600);
+  tl.set('.card-host[data-card-id="sub-08"]',{visibility:"hidden"},8.1600);
+  tl.set('.card-host[data-card-id="sub-09"]',{visibility:"visible"},8.5200);
+  tl.fromTo('.card-host[data-card-id="sub-09"]',{opacity:0},{opacity:1,duration:0.12,ease:"power2.out"},8.5200);
+  tl.fromTo('#sub-09-line',{opacity:0,scale:0.90,rotation:-3,y:16},{opacity:1,scale:1,rotation:0,y:0,duration:0.22,ease:"back.out(1.9)"},8.5200);
+  tl.set('.card-host[data-card-id="sub-09"]',{visibility:"hidden"},9.2000);
+  tl.set('.card-host[data-card-id="sub-10"]',{visibility:"visible"},9.2400);
+  tl.fromTo('.card-host[data-card-id="sub-10"]',{opacity:0},{opacity:1,duration:0.12,ease:"power2.out"},9.2400);
+  tl.fromTo('#sub-10-line',{opacity:0,scale:0.90,rotation:-3,y:16},{opacity:1,scale:1,rotation:0,y:0,duration:0.22,ease:"back.out(1.9)"},9.2400);
+  tl.set('.card-host[data-card-id="sub-10"]',{visibility:"hidden"},9.8000);
+  tl.set('.card-host[data-card-id="sub-11"]',{visibility:"visible"},9.8400);
+  tl.fromTo('.card-host[data-card-id="sub-11"]',{opacity:0},{opacity:1,duration:0.12,ease:"power2.out"},9.8400);
+  tl.fromTo('#sub-11-line',{opacity:0,scale:0.90,rotation:-3,y:16},{opacity:1,scale:1,rotation:0,y:0,duration:0.22,ease:"back.out(1.9)"},9.8400);
+  tl.set('.card-host[data-card-id="sub-11"]',{visibility:"hidden"},10.6000);
+  tl.set('.card-host[data-card-id="sub-12"]',{visibility:"visible"},10.6400);
+  tl.fromTo('.card-host[data-card-id="sub-12"]',{opacity:0},{opacity:1,duration:0.12,ease:"power2.out"},10.6400);
+  tl.fromTo('#sub-12-line',{opacity:0,scale:0.90,rotation:-3,y:16},{opacity:1,scale:1,rotation:0,y:0,duration:0.22,ease:"back.out(1.9)"},10.6400);
+  tl.set('.card-host[data-card-id="sub-12"]',{visibility:"hidden"},11.2800);
+  tl.set('.card-host[data-card-id="sub-13"]',{visibility:"visible"},11.2800);
+  tl.fromTo('.card-host[data-card-id="sub-13"]',{opacity:0},{opacity:1,duration:0.12,ease:"power2.out"},11.2800);
+  tl.fromTo('#sub-13-line',{opacity:0,scale:0.90,rotation:-3,y:16},{opacity:1,scale:1,rotation:0,y:0,duration:0.22,ease:"back.out(1.9)"},11.2800);
+  tl.set('.card-host[data-card-id="sub-13"]',{visibility:"hidden"},11.9600);
+  tl.set('.card-host[data-card-id="sub-14"]',{visibility:"visible"},12.0000);
+  tl.fromTo('.card-host[data-card-id="sub-14"]',{opacity:0},{opacity:1,duration:0.12,ease:"power2.out"},12.0000);
+  tl.fromTo('#sub-14-line',{opacity:0,scale:0.90,rotation:-3,y:16},{opacity:1,scale:1,rotation:0,y:0,duration:0.22,ease:"back.out(1.9)"},12.0000);
+  tl.set('.card-host[data-card-id="sub-14"]',{visibility:"hidden"},13.4400);
+  tl.set('.card-host[data-card-id="sub-15"]',{visibility:"visible"},13.5200);
+  tl.fromTo('.card-host[data-card-id="sub-15"]',{opacity:0},{opacity:1,duration:0.12,ease:"power2.out"},13.5200);
+  tl.fromTo('#sub-15-line',{opacity:0,scale:0.90,rotation:-3,y:16},{opacity:1,scale:1,rotation:0,y:0,duration:0.22,ease:"back.out(1.9)"},13.5200);
+  tl.set('.card-host[data-card-id="sub-15"]',{visibility:"hidden"},15.0800);
+  tl.set('.card-host[data-card-id="sub-16"]',{visibility:"visible"},15.2000);
+  tl.fromTo('.card-host[data-card-id="sub-16"]',{opacity:0},{opacity:1,duration:0.12,ease:"power2.out"},15.2000);
+  tl.fromTo('#sub-16-line',{opacity:0,scale:0.90,rotation:-3,y:16},{opacity:1,scale:1,rotation:0,y:0,duration:0.22,ease:"back.out(1.9)"},15.2000);
+  tl.set('.card-host[data-card-id="sub-16"]',{visibility:"hidden"},16.0000);
+  tl.set('.card-host[data-card-id="sub-17"]',{visibility:"visible"},16.0000);
+  tl.fromTo('.card-host[data-card-id="sub-17"]',{opacity:0},{opacity:1,duration:0.12,ease:"power2.out"},16.0000);
+  tl.fromTo('#sub-17-line',{opacity:0,scale:0.90,rotation:-3,y:16},{opacity:1,scale:1,rotation:0,y:0,duration:0.22,ease:"back.out(1.9)"},16.0000);
+  tl.set('.card-host[data-card-id="sub-17"]',{visibility:"hidden"},17.6400);
+  tl.set('.card-host[data-card-id="sub-18"]',{visibility:"visible"},17.6800);
+  tl.fromTo('.card-host[data-card-id="sub-18"]',{opacity:0},{opacity:1,duration:0.12,ease:"power2.out"},17.6800);
+  tl.fromTo('#sub-18-line',{opacity:0,scale:0.90,rotation:-3,y:16},{opacity:1,scale:1,rotation:0,y:0,duration:0.22,ease:"back.out(1.9)"},17.6800);
+  tl.set('.card-host[data-card-id="sub-18"]',{visibility:"hidden"},18.5600);
+  tl.set('.card-host[data-card-id="sub-19"]',{visibility:"visible"},18.6000);
+  tl.fromTo('.card-host[data-card-id="sub-19"]',{opacity:0},{opacity:1,duration:0.12,ease:"power2.out"},18.6000);
+  tl.fromTo('#sub-19-line',{opacity:0,scale:0.90,rotation:-3,y:16},{opacity:1,scale:1,rotation:0,y:0,duration:0.22,ease:"back.out(1.9)"},18.6000);
+  tl.set('.card-host[data-card-id="sub-19"]',{visibility:"hidden"},19.0400);
+  tl.set('.card-host[data-card-id="sub-20"]',{visibility:"visible"},19.0400);
+  tl.fromTo('.card-host[data-card-id="sub-20"]',{opacity:0},{opacity:1,duration:0.12,ease:"power2.out"},19.0400);
+  tl.fromTo('#sub-20-line',{opacity:0,scale:0.90,rotation:-3,y:16},{opacity:1,scale:1,rotation:0,y:0,duration:0.22,ease:"back.out(1.9)"},19.0400);
+  tl.set('.card-host[data-card-id="sub-20"]',{visibility:"hidden"},19.6800);
+  tl.set('.card-host[data-card-id="sub-21"]',{visibility:"visible"},19.6800);
+  tl.fromTo('.card-host[data-card-id="sub-21"]',{opacity:0},{opacity:1,duration:0.12,ease:"power2.out"},19.6800);
+  tl.fromTo('#sub-21-line',{opacity:0,scale:0.90,rotation:-3,y:16},{opacity:1,scale:1,rotation:0,y:0,duration:0.22,ease:"back.out(1.9)"},19.6800);
+  tl.set('.card-host[data-card-id="sub-21"]',{visibility:"hidden"},20.2800);
+  tl.set('.card-host[data-card-id="sub-22"]',{visibility:"visible"},20.3200);
+  tl.fromTo('.card-host[data-card-id="sub-22"]',{opacity:0},{opacity:1,duration:0.12,ease:"power2.out"},20.3200);
+  tl.fromTo('#sub-22-line',{opacity:0,scale:0.90,rotation:-3,y:16},{opacity:1,scale:1,rotation:0,y:0,duration:0.22,ease:"back.out(1.9)"},20.3200);
+  tl.set('.card-host[data-card-id="sub-22"]',{visibility:"hidden"},21.0400);
+  tl.set('.card-host[data-card-id="sub-23"]',{visibility:"visible"},21.0400);
+  tl.fromTo('.card-host[data-card-id="sub-23"]',{opacity:0},{opacity:1,duration:0.12,ease:"power2.out"},21.0400);
+  tl.fromTo('#sub-23-line',{opacity:0,scale:0.90,rotation:-3,y:16},{opacity:1,scale:1,rotation:0,y:0,duration:0.22,ease:"back.out(1.9)"},21.0400);
+  tl.set('.card-host[data-card-id="sub-23"]',{visibility:"hidden"},21.6000);
+  tl.set('.card-host[data-card-id="sub-24"]',{visibility:"visible"},21.6000);
+  tl.fromTo('.card-host[data-card-id="sub-24"]',{opacity:0},{opacity:1,duration:0.12,ease:"power2.out"},21.6000);
+  tl.fromTo('#sub-24-line',{opacity:0,scale:0.90,rotation:-3,y:16},{opacity:1,scale:1,rotation:0,y:0,duration:0.22,ease:"back.out(1.9)"},21.6000);
+  tl.set('.card-host[data-card-id="sub-24"]',{visibility:"hidden"},22.0400);
+  tl.set('.card-host[data-card-id="sub-25"]',{visibility:"visible"},22.0800);
+  tl.fromTo('.card-host[data-card-id="sub-25"]',{opacity:0},{opacity:1,duration:0.12,ease:"power2.out"},22.0800);
+  tl.fromTo('#sub-25-line',{opacity:0,scale:0.90,rotation:-3,y:16},{opacity:1,scale:1,rotation:0,y:0,duration:0.22,ease:"back.out(1.9)"},22.0800);
+  tl.set('.card-host[data-card-id="sub-25"]',{visibility:"hidden"},22.5600);
+  tl.set('.card-host[data-card-id="sub-26"]',{visibility:"visible"},22.5600);
+  tl.fromTo('.card-host[data-card-id="sub-26"]',{opacity:0},{opacity:1,duration:0.12,ease:"power2.out"},22.5600);
+  tl.fromTo('#sub-26-line',{opacity:0,scale:0.90,rotation:-3,y:16},{opacity:1,scale:1,rotation:0,y:0,duration:0.22,ease:"back.out(1.9)"},22.5600);
+  tl.set('.card-host[data-card-id="sub-26"]',{visibility:"hidden"},23.2000);
+  tl.set('.card-host[data-card-id="sub-27"]',{visibility:"visible"},23.2800);
+  tl.fromTo('.card-host[data-card-id="sub-27"]',{opacity:0},{opacity:1,duration:0.12,ease:"power2.out"},23.2800);
+  tl.fromTo('#sub-27-line',{opacity:0,scale:0.90,rotation:-3,y:16},{opacity:1,scale:1,rotation:0,y:0,duration:0.22,ease:"back.out(1.9)"},23.2800);
+  tl.set('.card-host[data-card-id="sub-27"]',{visibility:"hidden"},24.4800);
+  tl.set('.card-host[data-card-id="sub-28"]',{visibility:"visible"},24.4800);
+  tl.fromTo('.card-host[data-card-id="sub-28"]',{opacity:0},{opacity:1,duration:0.12,ease:"power2.out"},24.4800);
+  tl.fromTo('#sub-28-line',{opacity:0,scale:0.90,rotation:-3,y:16},{opacity:1,scale:1,rotation:0,y:0,duration:0.22,ease:"back.out(1.9)"},24.4800);
+  tl.set('.card-host[data-card-id="sub-28"]',{visibility:"hidden"},25.1200);
+  tl.set('.card-host[data-card-id="sub-29"]',{visibility:"visible"},25.1200);
+  tl.fromTo('.card-host[data-card-id="sub-29"]',{opacity:0},{opacity:1,duration:0.12,ease:"power2.out"},25.1200);
+  tl.fromTo('#sub-29-line',{opacity:0,scale:0.90,rotation:-3,y:16},{opacity:1,scale:1,rotation:0,y:0,duration:0.22,ease:"back.out(1.9)"},25.1200);
+  tl.set('.card-host[data-card-id="sub-29"]',{visibility:"hidden"},25.8800);
+  tl.set('.card-host[data-card-id="sub-30"]',{visibility:"visible"},26.2800);
+  tl.fromTo('.card-host[data-card-id="sub-30"]',{opacity:0},{opacity:1,duration:0.12,ease:"power2.out"},26.2800);
+  tl.fromTo('#sub-30-line',{opacity:0,scale:0.90,rotation:-3,y:16},{opacity:1,scale:1,rotation:0,y:0,duration:0.22,ease:"back.out(1.9)"},26.2800);
+  tl.set('.card-host[data-card-id="sub-30"]',{visibility:"hidden"},26.9600);
+  tl.set('.card-host[data-card-id="sub-31"]',{visibility:"visible"},27.0000);
+  tl.fromTo('.card-host[data-card-id="sub-31"]',{opacity:0},{opacity:1,duration:0.12,ease:"power2.out"},27.0000);
+  tl.fromTo('#sub-31-line',{opacity:0,scale:0.90,rotation:-3,y:16},{opacity:1,scale:1,rotation:0,y:0,duration:0.22,ease:"back.out(1.9)"},27.0000);
+  tl.set('.card-host[data-card-id="sub-31"]',{visibility:"hidden"},27.6800);
+  tl.set('.card-host[data-card-id="sub-32"]',{visibility:"visible"},27.6800);
+  tl.fromTo('.card-host[data-card-id="sub-32"]',{opacity:0},{opacity:1,duration:0.12,ease:"power2.out"},27.6800);
+  tl.fromTo('#sub-32-line',{opacity:0,scale:0.90,rotation:-3,y:16},{opacity:1,scale:1,rotation:0,y:0,duration:0.22,ease:"back.out(1.9)"},27.6800);
+  tl.set('.card-host[data-card-id="sub-32"]',{visibility:"hidden"},28.3200);
+  tl.set('.card-host[data-card-id="sub-33"]',{visibility:"visible"},28.3200);
+  tl.fromTo('.card-host[data-card-id="sub-33"]',{opacity:0},{opacity:1,duration:0.12,ease:"power2.out"},28.3200);
+  tl.fromTo('#sub-33-line',{opacity:0,scale:0.90,rotation:-3,y:16},{opacity:1,scale:1,rotation:0,y:0,duration:0.22,ease:"back.out(1.9)"},28.3200);
+  tl.set('.card-host[data-card-id="sub-33"]',{visibility:"hidden"},29.2000);
+  tl.set('.card-host[data-card-id="sub-34"]',{visibility:"visible"},29.2000);
+  tl.fromTo('.card-host[data-card-id="sub-34"]',{opacity:0},{opacity:1,duration:0.12,ease:"power2.out"},29.2000);
+  tl.fromTo('#sub-34-line',{opacity:0,scale:0.90,rotation:-3,y:16},{opacity:1,scale:1,rotation:0,y:0,duration:0.22,ease:"back.out(1.9)"},29.2000);
+  tl.set('.card-host[data-card-id="sub-34"]',{visibility:"hidden"},29.8400);
+  tl.set('.card-host[data-card-id="sub-35"]',{visibility:"visible"},29.8400);
+  tl.fromTo('.card-host[data-card-id="sub-35"]',{opacity:0},{opacity:1,duration:0.12,ease:"power2.out"},29.8400);
+  tl.fromTo('#sub-35-line',{opacity:0,scale:0.90,rotation:-3,y:16},{opacity:1,scale:1,rotation:0,y:0,duration:0.22,ease:"back.out(1.9)"},29.8400);
+  tl.set('.card-host[data-card-id="sub-35"]',{visibility:"hidden"},30.6400);
+  tl.set('.card-host[data-card-id="sub-36"]',{visibility:"visible"},30.9200);
+  tl.fromTo('.card-host[data-card-id="sub-36"]',{opacity:0},{opacity:1,duration:0.12,ease:"power2.out"},30.9200);
+  tl.fromTo('#sub-36-line',{opacity:0,scale:0.90,rotation:-3,y:16},{opacity:1,scale:1,rotation:0,y:0,duration:0.22,ease:"back.out(1.9)"},30.9200);
+  tl.set('.card-host[data-card-id="sub-36"]',{visibility:"hidden"},31.5200);
+  tl.set('.card-host[data-card-id="sub-37"]',{visibility:"visible"},31.5200);
+  tl.fromTo('.card-host[data-card-id="sub-37"]',{opacity:0},{opacity:1,duration:0.12,ease:"power2.out"},31.5200);
+  tl.fromTo('#sub-37-line',{opacity:0,scale:0.90,rotation:-3,y:16},{opacity:1,scale:1,rotation:0,y:0,duration:0.22,ease:"back.out(1.9)"},31.5200);
+  tl.set('.card-host[data-card-id="sub-37"]',{visibility:"hidden"},32.0800);
+  tl.set('.card-host[data-card-id="sub-38"]',{visibility:"visible"},32.0800);
+  tl.fromTo('.card-host[data-card-id="sub-38"]',{opacity:0},{opacity:1,duration:0.12,ease:"power2.out"},32.0800);
+  tl.fromTo('#sub-38-line',{opacity:0,scale:0.90,rotation:-3,y:16},{opacity:1,scale:1,rotation:0,y:0,duration:0.22,ease:"back.out(1.9)"},32.0800);
+  tl.set('.card-host[data-card-id="sub-38"]',{visibility:"hidden"},32.8000);
+  tl.set('.card-host[data-card-id="sub-39"]',{visibility:"visible"},32.8000);
+  tl.fromTo('.card-host[data-card-id="sub-39"]',{opacity:0},{opacity:1,duration:0.12,ease:"power2.out"},32.8000);
+  tl.fromTo('#sub-39-line',{opacity:0,scale:0.90,rotation:-3,y:16},{opacity:1,scale:1,rotation:0,y:0,duration:0.22,ease:"back.out(1.9)"},32.8000);
+  tl.set('.card-host[data-card-id="sub-39"]',{visibility:"hidden"},34.0400);
+  tl.set('.card-host[data-card-id="sub-40"]',{visibility:"visible"},34.0800);
+  tl.fromTo('.card-host[data-card-id="sub-40"]',{opacity:0},{opacity:1,duration:0.12,ease:"power2.out"},34.0800);
+  tl.fromTo('#sub-40-line',{opacity:0,scale:0.90,rotation:-3,y:16},{opacity:1,scale:1,rotation:0,y:0,duration:0.22,ease:"back.out(1.9)"},34.0800);
+  tl.set('.card-host[data-card-id="sub-40"]',{visibility:"hidden"},34.8800);
+  tl.set('.card-host[data-card-id="sub-41"]',{visibility:"visible"},35.2800);
+  tl.fromTo('.card-host[data-card-id="sub-41"]',{opacity:0},{opacity:1,duration:0.12,ease:"power2.out"},35.2800);
+  tl.fromTo('#sub-41-line',{opacity:0,scale:0.90,rotation:-3,y:16},{opacity:1,scale:1,rotation:0,y:0,duration:0.22,ease:"back.out(1.9)"},35.2800);
+  tl.set('.card-host[data-card-id="sub-41"]',{visibility:"hidden"},35.9200);
+  tl.set('.card-host[data-card-id="sub-42"]',{visibility:"visible"},35.9600);
+  tl.fromTo('.card-host[data-card-id="sub-42"]',{opacity:0},{opacity:1,duration:0.12,ease:"power2.out"},35.9600);
+  tl.fromTo('#sub-42-line',{opacity:0,scale:0.90,rotation:-3,y:16},{opacity:1,scale:1,rotation:0,y:0,duration:0.22,ease:"back.out(1.9)"},35.9600);
+  tl.set('.card-host[data-card-id="sub-42"]',{visibility:"hidden"},36.4400);
+  tl.set('.card-host[data-card-id="sub-43"]',{visibility:"visible"},36.4800);
+  tl.fromTo('.card-host[data-card-id="sub-43"]',{opacity:0},{opacity:1,duration:0.12,ease:"power2.out"},36.4800);
+  tl.fromTo('#sub-43-line',{opacity:0,scale:0.90,rotation:-3,y:16},{opacity:1,scale:1,rotation:0,y:0,duration:0.22,ease:"back.out(1.9)"},36.4800);
+  tl.set('.card-host[data-card-id="sub-43"]',{visibility:"hidden"},37.9200);
+  tl.set('.card-host[data-card-id="sub-44"]',{visibility:"visible"},37.9200);
+  tl.fromTo('.card-host[data-card-id="sub-44"]',{opacity:0},{opacity:1,duration:0.12,ease:"power2.out"},37.9200);
+  tl.fromTo('#sub-44-line',{opacity:0,scale:0.90,rotation:-3,y:16},{opacity:1,scale:1,rotation:0,y:0,duration:0.22,ease:"back.out(1.9)"},37.9200);
+  tl.set('.card-host[data-card-id="sub-44"]',{visibility:"hidden"},39.2000);
+  tl.set('.card-host[data-card-id="sub-45"]',{visibility:"visible"},39.2400);
+  tl.fromTo('.card-host[data-card-id="sub-45"]',{opacity:0},{opacity:1,duration:0.12,ease:"power2.out"},39.2400);
+  tl.fromTo('#sub-45-line',{opacity:0,scale:0.90,rotation:-3,y:16},{opacity:1,scale:1,rotation:0,y:0,duration:0.22,ease:"back.out(1.9)"},39.2400);
+  tl.set('.card-host[data-card-id="sub-45"]',{visibility:"hidden"},40.1600);
+  tl.set('.card-host[data-card-id="sub-46"]',{visibility:"visible"},40.2000);
+  tl.fromTo('.card-host[data-card-id="sub-46"]',{opacity:0},{opacity:1,duration:0.12,ease:"power2.out"},40.2000);
+  tl.fromTo('#sub-46-line',{opacity:0,scale:0.90,rotation:-3,y:16},{opacity:1,scale:1,rotation:0,y:0,duration:0.22,ease:"back.out(1.9)"},40.2000);
+  tl.set('.card-host[data-card-id="sub-46"]',{visibility:"hidden"},41.0400);
+  tl.set('.card-host[data-card-id="sub-47"]',{visibility:"visible"},41.0400);
+  tl.fromTo('.card-host[data-card-id="sub-47"]',{opacity:0},{opacity:1,duration:0.12,ease:"power2.out"},41.0400);
+  tl.fromTo('#sub-47-line',{opacity:0,scale:0.90,rotation:-3,y:16},{opacity:1,scale:1,rotation:0,y:0,duration:0.22,ease:"back.out(1.9)"},41.0400);
+  tl.set('.card-host[data-card-id="sub-47"]',{visibility:"hidden"},41.8400);
+  tl.set('.card-host[data-card-id="sub-48"]',{visibility:"visible"},41.8800);
+  tl.fromTo('.card-host[data-card-id="sub-48"]',{opacity:0},{opacity:1,duration:0.12,ease:"power2.out"},41.8800);
+  tl.fromTo('#sub-48-line',{opacity:0,scale:0.90,rotation:-3,y:16},{opacity:1,scale:1,rotation:0,y:0,duration:0.22,ease:"back.out(1.9)"},41.8800);
+  tl.set('.card-host[data-card-id="sub-48"]',{visibility:"hidden"},42.5600);
+  tl.set('.card-host[data-card-id="sub-49"]',{visibility:"visible"},42.5600);
+  tl.fromTo('.card-host[data-card-id="sub-49"]',{opacity:0},{opacity:1,duration:0.12,ease:"power2.out"},42.5600);
+  tl.fromTo('#sub-49-line',{opacity:0,scale:0.90,rotation:-3,y:16},{opacity:1,scale:1,rotation:0,y:0,duration:0.22,ease:"back.out(1.9)"},42.5600);
+  tl.set('.card-host[data-card-id="sub-49"]',{visibility:"hidden"},43.4400);
+
+  // cards
+  tl.set('.card-host[data-card-id="c-kicker"]',{visibility:"visible"},0.2000);
+  tl.fromTo('.card-host[data-card-id="c-kicker"]',{opacity:0,y:-20},{opacity:1,y:0,duration:0.42,ease:"power3.out"},0.2000);
+  tl.to('.card-host[data-card-id="c-kicker"]',{opacity:0,duration:0.30,ease:"power2.in"},2.5800);
+  tl.set('.card-host[data-card-id="c-kicker"]',{visibility:"hidden"},2.8800);
+  tl.set('.card-host[data-card-id="c-ch1"]',{visibility:"visible"},2.9600);
+  tl.fromTo('.card-host[data-card-id="c-ch1"]',{opacity:0,y:-22},{opacity:1,y:0,duration:0.42,ease:"power3.out"},2.9600);
+  tl.to('.card-host[data-card-id="c-ch1"]',{opacity:0,duration:0.30,ease:"power2.in"},5.3000);
+  tl.set('.card-host[data-card-id="c-ch1"]',{visibility:"hidden"},5.6000);
+  tl.set('.card-host[data-card-id="c-ch2"]',{visibility:"visible"},13.5200);
+  tl.fromTo('.card-host[data-card-id="c-ch2"]',{opacity:0,y:-22},{opacity:1,y:0,duration:0.42,ease:"power3.out"},13.5200);
+  tl.to('.card-host[data-card-id="c-ch2"]',{opacity:0,duration:0.30,ease:"power2.in"},14.8200);
+  tl.set('.card-host[data-card-id="c-ch2"]',{visibility:"hidden"},15.1200);
+  tl.set('.card-host[data-card-id="c-ch3"]',{visibility:"visible"},30.8800);
+  tl.fromTo('.card-host[data-card-id="c-ch3"]',{opacity:0,y:-22},{opacity:1,y:0,duration:0.42,ease:"power3.out"},30.8800);
+  tl.to('.card-host[data-card-id="c-ch3"]',{opacity:0,duration:0.30,ease:"power2.in"},32.8200);
+  tl.set('.card-host[data-card-id="c-ch3"]',{visibility:"hidden"},33.1200);
+  tl.set('.card-host[data-card-id="c-stat1"]',{visibility:"visible"},5.6800);
+  tl.fromTo('.card-host[data-card-id="c-stat1"]',{opacity:0,y:-30},{opacity:1,y:0,duration:0.46,ease:"power3.out"},5.6800);
+  tl.to('.card-host[data-card-id="c-stat1"]',{opacity:0,duration:0.30,ease:"power2.in"},8.8200);
+  tl.set('.card-host[data-card-id="c-stat1"]',{visibility:"hidden"},9.1200);
+  (function(){var o={v:0};tl.to(o,{v:60,duration:0.95,ease:"power2.out",onUpdate:function(){var el=document.getElementById("c-stat1-num");if(el)el.textContent=Math.round(o.v);}},6.0000);})();
+  tl.fromTo('#c-stat1-bar',{scaleX:0},{scaleX:1,duration:0.7,ease:"power2.out"},6.0000);
+  tl.set('.card-host[data-card-id="c-stat2"]',{visibility:"visible"},37.9200);
+  tl.fromTo('.card-host[data-card-id="c-stat2"]',{opacity:0,y:-30},{opacity:1,y:0,duration:0.46,ease:"power3.out"},37.9200);
+  tl.to('.card-host[data-card-id="c-stat2"]',{opacity:0,duration:0.30,ease:"power2.in"},39.8600);
+  tl.set('.card-host[data-card-id="c-stat2"]',{visibility:"hidden"},40.1600);
+  (function(){var o={v:0};tl.to(o,{v:50,duration:0.95,ease:"power2.out",onUpdate:function(){var el=document.getElementById("c-stat2-num");if(el)el.textContent=Math.round(o.v);}},38.2400);})();
+  tl.fromTo('#c-stat2-bar',{scaleX:0},{scaleX:1,duration:0.7,ease:"power2.out"},38.2400);
+  tl.set('.card-host[data-card-id="c-money"]',{visibility:"visible"},9.5600);
+  tl.fromTo('.card-host[data-card-id="c-money"]',{opacity:0,y:-30},{opacity:1,y:0,duration:0.46,ease:"power3.out"},9.5600);
+  tl.to('.card-host[data-card-id="c-money"]',{opacity:0,duration:0.30,ease:"power2.in"},13.1400);
+  tl.set('.card-host[data-card-id="c-money"]',{visibility:"hidden"},13.4400);
+  tl.fromTo('#c-money-arr',{opacity:0,x:-14},{opacity:1,x:0,duration:0.4,ease:"power3.out"},9.9200);
+  tl.fromTo('#c-money-now',{opacity:0,scale:0.8},{opacity:1,scale:1,duration:0.42,ease:"back.out(2)"},10.0800);
+  tl.set('.card-host[data-card-id="c-feat"]',{visibility:"visible"},19.5600);
+  tl.fromTo('.card-host[data-card-id="c-feat"]',{opacity:0,y:24},{opacity:1,y:0,duration:0.4,ease:"power3.out"},19.5600);
+  tl.to('.card-host[data-card-id="c-feat"]',{opacity:0,duration:0.30,ease:"power2.in"},24.7400);
+  tl.set('.card-host[data-card-id="c-feat"]',{visibility:"hidden"},25.0400);
+  tl.fromTo('#c-feat-r0',{opacity:0,x:-40},{opacity:1,x:0,duration:0.44,ease:"power3.out"},19.9200);
+  tl.fromTo('#c-feat-r1',{opacity:0,x:-40},{opacity:1,x:0,duration:0.44,ease:"power3.out"},20.3200);
+  tl.fromTo('#c-feat-r2',{opacity:0,x:-40},{opacity:1,x:0,duration:0.44,ease:"power3.out"},20.7600);
+  tl.set('.card-host[data-card-id="c-dist"]',{visibility:"visible"},40.1600);
+  tl.fromTo('.card-host[data-card-id="c-dist"]',{opacity:0,y:22},{opacity:1,y:0,duration:0.4,ease:"power3.out"},40.1600);
+  tl.fromTo('#c-dist-p0',{opacity:0,scale:0.7,y:12},{opacity:1,scale:1,y:0,duration:0.42,ease:"back.out(2)"},40.4000);
+  tl.fromTo('#c-dist-p1',{opacity:0,scale:0.7,y:12},{opacity:1,scale:1,y:0,duration:0.42,ease:"back.out(2)"},40.7600);
+  tl.fromTo('#c-dist-p2',{opacity:0,scale:0.7,y:12},{opacity:1,scale:1,y:0,duration:0.42,ease:"back.out(2)"},41.0800);
+  tl.to('.card-host[data-card-id="c-dist"]',{opacity:0,duration:0.28,ease:"power2.in"},43.3600);
+  tl.set('.card-host[data-card-id="c-dist"]',{visibility:"hidden"},43.4400);
+    window.__timelines=window.__timelines||{};
+    window.__timelines["dubai-remont"]=tl;
+  })();
+  </script>
+</div>
+</body>
+</html>

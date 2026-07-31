@@ -1,0 +1,8 @@
+# Video edit — large/binary intermediates (not suitable for git / exceed GitHub limits)
+готов/
+videos/dubai-remont/public/input-video.mp4
+videos/dubai-remont/public/snapshots/
+videos/dubai-remont/public/media/bgm.wav
+# final render is committed once verified; ignore partial file during render
+videos/dubai-remont/output.mp4
+videos/dubai-remont/work-*/

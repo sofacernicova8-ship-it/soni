@@ -1,0 +1,32 @@
+{
+ "schemaVersion": 3,
+ "composition": {
+  "fps": 25,
+  "width": 1080,
+  "height": 1920,
+  "durationSeconds": 43.48,
+  "layout": "portrait",
+  "themeId": "custom-brand",
+  "seed": 7
+ },
+ "videoTrack": {
+  "sourcePath": "input-video.mp4",
+  "startSec": 0,
+  "endSec": 43.48
+ },
+ "subtitles": {
+  "enabled": true,
+  "count": 50
+ },
+ "cards": [
+  "c-kicker",
+  "c-ch1",
+  "c-stat1",
+  "c-money",
+  "c-ch2",
+  "c-feat",
+  "c-ch3",
+  "c-stat2",
+  "c-dist"
+ ]
+}
